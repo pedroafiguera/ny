@@ -1,0 +1,33 @@
+<h1>Listing buildings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Pickupaddress</th>
+      <th>Finaladdress</th>
+      <th>Street</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @buildings.each do |building| %>
+      <tr>
+        <td><%= building.address %></td>
+        <td><%= building.pickupaddress %></td>
+        <td><%= building.finaladdress %></td>
+        <td><%= building.street_id %></td>
+        <td><%= link_to 'Show', building %></td>
+        <td><%= link_to 'Edit', edit_building_path(building) %></td>
+        <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Building', new_building_path %>
